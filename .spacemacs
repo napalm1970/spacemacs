@@ -314,16 +314,16 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  ;;(setq yas-snippet-dirs '("~/.emacs.d/elpa/yasnippet-snippets-20180922.1928/"))
+ ;; (setq yas-snippet-dirs '("~/.emacs.d/elpa/yasnippet-snippets-20180922.1928"))
   (setq yas-snippet-dirs 
-        (progn
-          (dired '("/home/napalm/.emacs.d/elpa"))
-          (switch-to-buffer (other-buffer))
+       (progn
+         (dired '("/home/napalm/.emacs.d/elpa"))
+         (switch-to-buffer (other-buffer))
           (set-buffer (other-buffer))
-          (dired-mark-files-regexp "yasnippet-snippets-[0-9]*\.[0-9]*")
-          (setq fname (dired-get-filename))
-          (kill-buffer (other-buffer))
-          fname))
+         (dired-mark-files-regexp "yasnippet-snippets-[0-9]*\.[0-9]*")
+         (setq fname (dired-get-filename))
+         (kill-buffer (other-buffer))
+         (list fname)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
